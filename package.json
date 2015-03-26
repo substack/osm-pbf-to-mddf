@@ -4,7 +4,7 @@
   "description": "convert open street map protocol buffers to mddf",
   "main": "index.js",
   "bin": {
-    "osm-pbf-to-mddf": "cmd.js"
+    "osm-pbf-to-mddf": "bin/cmd.js"
   },
   "directories": {
     "example": "example"
