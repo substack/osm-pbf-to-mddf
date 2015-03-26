@@ -9,11 +9,15 @@ module.exports = function (df) {
     var center = [0,0,0];
     
     osm.pipe(through.obj(write));
-    return writeonly(osm);
+    var w = writeonly(osm);
+    return w;
     
     function write (ilist, enc, next) {
         var pending = 0;
-        function advance () { if (--pending === 0) next() }
+        function advance (err) {
+            if (err) w.emit('error', err)
+            else if (--pending === 0) next()
+        }
         
         for (var i = 0; i < ilist.length; i++) {
             var item = ilist[i];
