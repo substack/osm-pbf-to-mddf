@@ -1,0 +1,8 @@
+usage: osm-pbf-to-mddf OPTIONS
+
+OPTIONS are:
+
+  -i INFILE   Read from INFILE, an open street map pbf file.
+  -o OUTFILE  Write to OUTFILE, an mddf index.
+  -b BLKSIZE  Block size to use for mddf index. Default: 4096.
+
