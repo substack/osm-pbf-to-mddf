@@ -1,7 +1,6 @@
 var ecef = require('geodetic-to-ecef');
 var through = require('through2');
 var writeonly = require('write-only-stream');
-
 var OSM  = require('osm-pbf-parser');
 
 module.exports = function (df) {

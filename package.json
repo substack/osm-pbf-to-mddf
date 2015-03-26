@@ -1,0 +1,43 @@
+{
+  "name": "osm-pbf-to-mddf",
+  "version": "1.0.0",
+  "description": "convert open street map protocol buffers to mddf",
+  "main": "index.js",
+  "bin": {
+    "osm-pbf-to-mddf": "cmd.js"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "geodetic-to-ecef": "^1.0.0",
+    "mddf": "^1.0.0",
+    "minimist": "^1.1.1",
+    "osm-pbf-parser": "^2.1.2",
+    "through2": "^0.6.3",
+    "write-only-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "tape": "^3.5.0"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/substack/osm-pbf-to-mddf.git"
+  },
+  "keywords": [
+    "mddf",
+    "osm",
+    "pbf",
+    "geospatial",
+    "index"
+  ],
+  "author": "substack",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/substack/osm-pbf-to-mddf/issues"
+  },
+  "homepage": "https://github.com/substack/osm-pbf-to-mddf"
+}
