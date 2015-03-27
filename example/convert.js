@@ -12,5 +12,5 @@ var df = mddf({
     write: fs.write.bind(null, fd)
 });
 
-var osmdf = require('../')(df);
-fs.createReadStream('auckland.osm.pbf').pipe(osmdf);
+var osmddf = require('../')(df);
+fs.createReadStream('auckland.osm.pbf').pipe(osmddf);
