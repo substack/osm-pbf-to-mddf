@@ -12,7 +12,8 @@ var argv = minimist(process.argv.slice(2), {
         h: 'help'
     },
     default: {
-        blksize: 4096
+        blksize: 4096,
+        fatal: true
     }
 });
 
@@ -38,6 +39,6 @@ var df = mddf({
     write: fs.write.bind(null, fd)
 });
 
-var osmdf = require('../')(df, { fatal: false });
+var osmdf = require('../')(df, { fatal: argv.fatal });
 osmdf.on('error', function (err) { console.error(err) });
 fs.createReadStream(argv.infile).pipe(osmdf);

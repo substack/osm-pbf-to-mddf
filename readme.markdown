@@ -30,10 +30,13 @@ fs.createReadStream('auckland.osm.pbf').pipe(osmddf);
 var osmddf = require('osm-pbf-to-mddf')
 ```
 
-## var w = osmddf(df)
+## var w = osmddf(df, opts)
 
 Create a writable stream `w` that will write an incoming open street map
 protobuf file to the mddf index `df`.
+
+Set `opts.fatal` to `false` to emit error events like usual but continue
+processing.
 
 # usage
 
@@ -45,6 +48,8 @@ OPTIONS are:
   -i INFILE   Read from INFILE, an open street map pbf file.
   -o OUTFILE  Write to OUTFILE, an mddf index.
   -b BLKSIZE  Block size to use for mddf index. Default: 4096.
+  
+  --no-fatal  Print errors to stderr but continue processing.
 
 ```
 
