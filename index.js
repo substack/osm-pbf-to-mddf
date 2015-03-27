@@ -3,7 +3,8 @@ var through = require('through2');
 var writeonly = require('write-only-stream');
 var OSM  = require('osm-pbf-parser');
 
-module.exports = function (df) {
+module.exports = function (df, opts) {
+    if (!opts) opts = {};
     var osm = OSM();
     var items = {};
     var center = [0,0,0];
@@ -16,7 +17,8 @@ module.exports = function (df) {
         var pending = 0;
         function advance (err) {
             if (err) w.emit('error', err)
-            else if (--pending === 0) next()
+            if (opts.fatal !== false) return;
+            if (--pending === 0) next()
         }
         
         for (var i = 0; i < ilist.length; i++) {

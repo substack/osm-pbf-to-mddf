@@ -38,5 +38,6 @@ var df = mddf({
     write: fs.write.bind(null, fd)
 });
 
-var osmdf = require('../')(df);
+var osmdf = require('../')(df, { fatal: false });
+osmdf.on('error', function (err) { console.error(err) });
 fs.createReadStream(argv.infile).pipe(osmdf);
